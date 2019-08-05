@@ -10,8 +10,10 @@ class Confirm extends Component {
             // TODO: Process data
         const { values: {firstName, lastName, email, occupation, city, bio } } = this.props;
 
-        console.log(this.props.values);
-        download("text.txt", this.props.values);
+        console.log(this.props.values.firstName);
+        var objValues = this.props.values;
+        var objData = objValues.firstName + '; ' + objValues.lastName + '; ' + objValues.email + '; ' + objValues.occupation + '; ' + objValues.city + '; ' + objValues.bio;
+        download(objValues.firstName + ".csv", objData);
         this.props.nextStep();
     }
 
